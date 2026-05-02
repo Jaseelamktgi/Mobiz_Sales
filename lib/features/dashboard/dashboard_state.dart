@@ -1,6 +1,16 @@
 part of 'dashboard_cubit.dart';
 
 @immutable
-sealed class DashboardState {}
+class DashboardState {
+  final bool isLoading;
+  final String? error;
 
-final class DashboardInitial extends DashboardState {}
+  const DashboardState({this.isLoading = false, this.error});
+
+  DashboardState copyWith({bool? isLoading, String? error}) {
+    return DashboardState(
+      isLoading: isLoading ?? this.isLoading,
+      error: error ?? this.error,
+    );
+  }
+}

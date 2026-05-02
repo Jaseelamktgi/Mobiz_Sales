@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobizsales/core/navigators/page_navigator.dart';
 import 'package:mobizsales/core/utils/auth.dart';
-import 'package:mobizsales/features/auth/data/models/login_model.dart';
 import 'package:mobizsales/features/auth/data/repo/auth_repo.dart';
 import 'package:mobizsales/features/dashboard/dashboard_screen.dart';
 
