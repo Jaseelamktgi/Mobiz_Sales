@@ -18,10 +18,11 @@ class LoginScreen extends StatelessWidget {
       child: Scaffold(
         body: Scaffold(
           resizeToAvoidBottomInset: true,
+
           body: Column(
             children: [
               Container(
-                height: 320,
+                height: 300,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   color: AppColors.primaryColor,
@@ -54,13 +55,12 @@ class LoginScreen extends StatelessWidget {
               Expanded(
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.symmetric(horizontal: 25),
-                  child: Transform.translate(
-                    offset: const Offset(0, -40),
-                    child: BlocBuilder<LoginCubit, LoginState>(
-                      builder: (context, state) {
-                        final cubit = context.read<LoginCubit>();
-
-                        return Container(
+                  child: BlocBuilder<LoginCubit, LoginState>(
+                    builder: (context, state) {
+                      final cubit = context.read<LoginCubit>();
+                      return Transform.translate(
+                        offset: const Offset(0, -20),
+                        child: Container(
                           padding: const EdgeInsets.all(22),
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -94,7 +94,9 @@ class LoginScreen extends StatelessWidget {
                                 hint: "Username",
                                 icon: Icons.person,
                               ),
+
                               20.hBox,
+
                               customField(
                                 controller: cubit.passwordController,
                                 hint: "Password",
@@ -110,14 +112,7 @@ class LoginScreen extends StatelessWidget {
                                   onPressed: cubit.togglePassword,
                                 ),
                               ),
-                              10.hBox,
-                              if (state.error != null) ...[
-                                AppText(
-                                  state.error!,
-                                  color: Colors.red,
-                                  size: 14,
-                                ),
-                              ],
+
                               30.hBox,
 
                               AppCustomButton(
@@ -132,9 +127,9 @@ class LoginScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-                        );
-                      },
-                    ),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobizsales/core/extensions/margin_extn.dart';
+import 'package:mobizsales/core/navigators/page_navigator.dart';
 import 'package:mobizsales/core/theme/colors.dart';
 import 'package:mobizsales/core/widgets/app_text.dart';
-import 'package:mobizsales/core/widgets/icon_container.dart';
+import 'package:mobizsales/core/widgets/dashboard_card.dart';
+import 'package:mobizsales/features/customer/presentation/customers_list/customers_list_screen.dart';
+import 'package:mobizsales/features/invoice/presentation/invoice_list/invoice_list_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -39,9 +42,21 @@ class DashboardScreen extends StatelessWidget {
             ),
           ),
           100.hBox,
-          iconContainer(Icons.people, "Customers"),
+          dashboardCard(
+            Icons.people,
+            "Customers",
+            onTap: () {
+              open(NavigationService.context!, const CustomersListScreen());
+            },
+          ),
           20.hBox,
-          iconContainer(Icons.scanner, "Invoices"),
+          dashboardCard(
+            Icons.receipt_long,
+            "Invoices",
+            onTap: () {
+              open(NavigationService.context!, const InvoiceListScreen());
+            },
+          ),
         ],
       ),
     );

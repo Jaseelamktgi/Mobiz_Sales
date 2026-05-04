@@ -7,9 +7,6 @@ class AppColors {
   static const Color appBlack = Color.fromARGB(255, 48, 48, 48);
   static const Color transparent = Colors.transparent;
   static Color primaryColor = Color(0xff4B49B6);
-  static Color bgColor = Color(0xffF1EEF2);
-
   static const Color darkGrey = Color(0xff3D3D3D);
-  static const Color scaffoldBg = Color(0XFFF3F3F3);
   static const Color appGrey = Color.fromARGB(255, 154, 153, 153);
 }

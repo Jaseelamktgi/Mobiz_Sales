@@ -6,12 +6,14 @@ class LoginState {
   final bool isLoading;
   final bool isSuccess;
   final String? error;
+  final UserDetailData? userData;
 
   const LoginState({
     this.isHidden = true,
     this.isLoading = false,
     this.isSuccess = false,
     this.error,
+    this.userData,
   });
 
   LoginState copyWith({
@@ -19,12 +21,14 @@ class LoginState {
     bool? isLoading,
     bool? isSuccess,
     String? error,
+    UserDetailData? userData,
   }) {
     return LoginState(
       isHidden: isHidden ?? this.isHidden,
       isLoading: isLoading ?? this.isLoading,
       isSuccess: isSuccess ?? this.isSuccess,
       error: error,
+      userData: userData ?? this.userData,
     );
   }
 }

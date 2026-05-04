@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'api_paths.dart';
 
@@ -13,7 +14,7 @@ class ApiService {
       final uri = Uri.parse(
         ApiPaths.baseUrl + endpoint,
       ).replace(queryParameters: queryParams);
-
+      debugPrint("API HIT: $uri");
       final response = await http.get(uri);
 
       return _handleResponse(response);
@@ -30,8 +31,8 @@ class ApiService {
   }) async {
     try {
       final uri = Uri.parse(ApiPaths.baseUrl + endpoint);
-      print("API HIT: $uri");
-      print("BODY: $body");
+      debugPrint("API HIT: $uri");
+      debugPrint("BODY: $body");
 
       final response = await http.post(
         uri,
@@ -50,8 +51,8 @@ class ApiService {
   static dynamic _handleResponse(http.Response response) {
     final data = jsonDecode(response.body);
 
-    print("STATUS CODE: ${response.statusCode}");
-    print("RESPONSE BODY: ${response.body}");
+    debugPrint("STATUS CODE: ${response.statusCode}");
+    debugPrint("RESPONSE BODY: ${response.body}");
 
     if (response.statusCode == 200) {
       return data;
